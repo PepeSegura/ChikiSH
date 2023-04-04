@@ -6,17 +6,21 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/04 01:06:05 by pepe             ###   ########.fr       */
+/*   Updated: 2023/04/04 14:55:25 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	read_exit(const char *command_buf)
+int	read_exit(char *command_buf)
 {
-	return (!ft_strcmp(command_buf, "exit")
-		|| !ft_strcmp(command_buf, "quit") || !ft_strcmp(command_buf, "e")
-		|| !ft_strcmp(command_buf, "q"));
+	if (!ft_strcmp(command_buf, "exit") || !ft_strcmp(command_buf, "quit")
+		|| !ft_strcmp(command_buf, "e") || !ft_strcmp(command_buf, "q"))
+		{
+			free(command_buf);
+			return (1);
+		}
+	return (0);
 }
 
 void	expand_while(void)
@@ -70,10 +74,10 @@ void	readline_create(void)
 			add_history(command_buf);
 		if (ft_continue(command_buf))
 			continue ;
+		free(command_buf);
 		g_c.tokens = tokens_to_pipas(g_c.tokens);
 		expand_while();
 		pipas_handler();
 		ft_free_matrix(g_c.tokens);
-		free(command_buf);
 	}
 }
