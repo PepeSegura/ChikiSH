@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/04 14:57:33 by pepe             ###   ########.fr        #
+#    Updated: 2023/04/04 15:37:01 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ OBJS = $(SRCS:.c=.o)
 LIB = libft/libft.a
 
 CC = gcc
-CFLAGS	 = -Wall -Wextra -Werror -g3 #-fsanitize=address -fsanitize=leak
+CFLAGS	 = -Wall -Wextra -Werror -g3 -fsanitize=address -fsanitize=leak
 CFLAGS	+= -I inc
 CFLAGS	+= -I libft
 READLINE = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)/.brew/opt/readline/include

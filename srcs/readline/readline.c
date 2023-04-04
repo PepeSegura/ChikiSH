@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/04 14:55:25 by pepe             ###   ########.fr       */
+/*   Updated: 2023/04/04 15:53:58 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ void	expand_while(void)
 
 int	ft_continue(char *command_buf)
 {
+	if (ft_strlen(command_buf) == 0)
+	{
+		free(command_buf);
+		return (1);
+	}
+	else
+		add_history(command_buf);
 	if (!check_quotes(command_buf))
 	{
 		printf("The quotes are not closed!\n");
@@ -62,16 +69,16 @@ void	readline_create(void)
 	while (1)
 	{
 		line = readline(PROMPT);
+		// printf("rl: %p\n", line);
 		command_buf = ft_strtrim(line, " ");
 		free(line);
+		// printf("cb: %p\n", command_buf);
 		if (!command_buf)
 			exit(0);
-		if (!*command_buf)
-			continue ;
+		// if (!*command_buf)
+		// 	continue ;
 		if (read_exit(command_buf))
 			break ;
-		if (ft_strlen(command_buf) > 0)
-			add_history(command_buf);
 		if (ft_continue(command_buf))
 			continue ;
 		free(command_buf);
