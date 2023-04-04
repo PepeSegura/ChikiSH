@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   readline.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/29 02:40:17 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/04 01:06:05 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	readline_create(void)
 		g_c.tokens = tokens_to_pipas(g_c.tokens);
 		expand_while();
 		pipas_handler();
-		// ft_free_matrix(g_c.tokens);
-		// free(command_buf);
+		ft_free_matrix(g_c.tokens);
+		free(command_buf);
 	}
 }

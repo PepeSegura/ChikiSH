@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:41:16 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/28 20:24:01 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/03 23:12:05 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,19 @@
 */
 
 typedef struct s_cosas {
-	char			**env;
-	char			**tokens;
-	int				tok_count;
-	int				flag;
-	int				pipas;
-	int				dolar_q;
-	int				fd[2];
-	int				redirection_out;
-	int				redirection_in;
-	int				read;
-	int				status_last_command;
+	char	**env;
+	char	**tokens;
+	int		tok_count;
+	int		flag;
+	int		pipas;
+	int		dolar_q;
+	int		fd[2];
+	int		redirection_out;
+	int		redirection_in;
+	int		read;
+	int		status_last_command;
+	int		pipa[2];
+	int		prev;
 }					t_cosas;
 
 extern t_cosas		g_c;
