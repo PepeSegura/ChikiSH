@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+         #
+#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 20:21:59 by psegura-          #+#    #+#              #
-#    Updated: 2023/03/25 00:06:41 by davgarci         ###   ########.fr        #
+#    Updated: 2023/04/04 16:01:34 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,7 +113,7 @@ all: reset $(NAME)
 ### Clear Console ###
 
 reset:
-	@echo "$(RESET)"
+	@echo -e "$(RESET)"
 
 ### Create Objects ###
 
@@ -124,7 +124,7 @@ OBJS = $(addprefix $(OBJDIR)/,$(OBJS_NAME))
 ### Objects dir ###
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
-		@echo "$(GREEN)Compiling:$(RED) $<"
+		@echo -e "$(GREEN)Compiling:$(RED) $<"
 		@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJDIR):
@@ -134,16 +134,16 @@ $(OBJDIR):
 
 $(NAME): $(OBJS)
 	@ar -rcs $(NAME) $(OBJS)
-	@echo "$(CYAN)Libft Done!"
+	@echo -e "$(CYAN)Libft Done!"
 
 clean: reset
 	@rm -rf $(OBJDIR)
-	@echo "$(CYAN)Objects Removed!"
+	@echo -e "$(CYAN)Objects Removed!"
 
 
 fclean: reset clean
 	@rm -rf $(NAME)
-	@echo "$(CYAN)Libft.a Removed!"
+	@echo -e "$(CYAN)Libft.a Removed!"
 
 re: fclean all
 

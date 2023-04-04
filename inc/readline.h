@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   readline.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 22:16:46 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/31 16:24:16 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:16:35 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ typedef struct s_expand {
 
 void	readline_create(void);
 char	*copy_join(char *str1, char *str2, t_expand *expand);
-char	*expan_token2(char *command_buf, char **environment);
+char	*expan_token(char *command_buf, char **environment);
 char	*expander(char *post_dolar, int i, char **environment);
 char	*malloc_expand(t_expand *expand, char *command_buf, char **environment);
 
 /*__MALLOC_EXPAND_TOKENS_AUX__*/
-char	*cp_expander2(char *post_dolar, int i, char **environment);
+char	*cp_expander(char *post_dolar, int i, char **environment);
 void	copy_expanded_aux(t_expand *expand, char *command_buf, char *new_str);
 void	cp_find_dolar_aux(t_expand *expand, char *command_buf, char *new_str);
 

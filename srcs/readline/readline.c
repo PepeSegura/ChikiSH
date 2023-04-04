@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/04 15:53:58 by pepe             ###   ########.fr       */
+/*   Updated: 2023/04/04 18:16:14 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	expand_while(void)
 	g_c.tok_count = 0;
 	while (g_c.tokens[g_c.tok_count])
 	{
-		g_c.tokens[g_c.tok_count] = expan_token2(g_c.tokens[g_c.tok_count],
+		g_c.tokens[g_c.tok_count] = expan_token(g_c.tokens[g_c.tok_count],
 				g_c.env);
 		if (token_is_symbol(g_c.tokens[g_c.tok_count]))
 			g_c.pipas++;
@@ -69,14 +69,10 @@ void	readline_create(void)
 	while (1)
 	{
 		line = readline(PROMPT);
-		// printf("rl: %p\n", line);
-		command_buf = ft_strtrim(line, " ");
+		command_buf = ft_strtrim(line, " \f\n\r\t\v");
 		free(line);
-		// printf("cb: %p\n", command_buf);
 		if (!command_buf)
 			exit(0);
-		// if (!*command_buf)
-		// 	continue ;
 		if (read_exit(command_buf))
 			break ;
 		if (ft_continue(command_buf))

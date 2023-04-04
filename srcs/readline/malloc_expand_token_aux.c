@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   malloc_expand_token_aux.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:29:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/02/04 16:30:18 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:16:35 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*cp_expander2(char *post_dolar, int i, char **environment)
+char	*cp_expander(char *post_dolar, int i, char **environment)
 {
 	while (*environment)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_token.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 17:57:27 by davgarci          #+#    #+#             */
-/*   Updated: 2023/02/04 16:12:53 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:16:14 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	counter_reserv(t_expand *expand, char *command_buf, char **environment)
 	}
 }
 
-char	*expan_token2(char *command_buf, char **environment)
+char	*expan_token(char *command_buf, char **environment)
 {
 	t_expand	expand;
 	char		*new_str;

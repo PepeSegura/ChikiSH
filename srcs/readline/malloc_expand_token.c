@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc_expand_token.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 01:13:06 by davgarci          #+#    #+#             */
-/*   Updated: 2023/02/04 16:46:36 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:16:35 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ char	*cp_find_dolar(t_expand *expand, char *command_buf, char **environment,
 	expand->k = expand->i;
 	while (ft_isalnum(command_buf[expand->i]) || command_buf[expand->i] == '_')
 		expand->i++;
-	expand->n += ft_strlen(cp_expander2(command_buf + expand->k,
+	expand->n += ft_strlen(cp_expander(command_buf + expand->k,
 				expand->i - expand->k, environment));
-	new_str = copy_join(new_str, cp_expander2(command_buf + expand->k,
+	new_str = copy_join(new_str, cp_expander(command_buf + expand->k,
 				expand->i - expand->k, environment), expand);
 	return (new_str);
 }

@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/04 15:55:04 by pepe             ###   ########.fr       */
+/*   Updated: 2023/04/04 18:13:16 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,12 +187,15 @@ void	pipas_handler(void)
 	pid_t	pid;
 	int		status;
 
-	ft_print_matrix(g_c.tokens, "tok");
+	// ft_print_matrix(g_c.tokens, "tok");
 	pid = fork();
 	if (pid < 0)
 		ft_perror("fork ");
 	if (pid == CHILD)
+	{
 		pipex();
+		exit(0);
+	}
 	else
 		waitpid(ANY, &status, 0);
 }
