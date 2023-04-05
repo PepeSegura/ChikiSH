@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/04 18:13:16 by pepe             ###   ########.fr       */
+/*   Updated: 2023/04/04 21:38:36 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,12 +171,15 @@ void	pipex(void)
 			child_process(i);
 		else
 		{
-			close(g_c.prev);
+			if (g_c.prev > 0)
+				close(g_c.prev);
 			close(g_c.pipa[LEFT]);
 			g_c.prev = g_c.pipa[RIGHT];
 		}
 		i++;
 	}
+	close(g_c.pipa[RIGHT]);
+	g_c.prev = 0;
 	i = 0;
 	while (i++ < g_c.tok_count)
 		waitpid(ANY, &status, 0);
@@ -184,18 +187,18 @@ void	pipex(void)
 
 void	pipas_handler(void)
 {
-	pid_t	pid;
-	int		status;
+	// pid_t	pid;
+	// int		status;
 
-	// ft_print_matrix(g_c.tokens, "tok");
-	pid = fork();
-	if (pid < 0)
-		ft_perror("fork ");
-	if (pid == CHILD)
-	{
+	// // ft_print_matrix(g_c.tokens, "tok");
+	// pid = fork();
+	// if (pid < 0)
+	// 	ft_perror("fork ");
+	// if (pid == CHILD)
+	// {
 		pipex();
-		exit(0);
-	}
-	else
-		waitpid(ANY, &status, 0);
+	// 	exit(0);
+	// }
+	// else
+	// 	waitpid(ANY, &status, 0);
 }

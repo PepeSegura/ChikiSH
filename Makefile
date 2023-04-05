@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/04 15:37:01 by pepe             ###   ########.fr        #
+#    Updated: 2023/04/04 18:52:34 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ READLINE = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)
 $(NAME): $(OBJS)
 	@make -C libft
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(READLINE) -o $(NAME)
-	@echo "$(CYAN) ❄️ Operation Helsinki Completed ❄️ $(WHITE)"
+	@echo -e "$(CYAN) ❄️ Operation Helsinki Completed ❄️ $(WHITE)"
 	
 all: $(NAME)
 

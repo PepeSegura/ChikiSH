@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 17:57:27 by davgarci          #+#    #+#             */
-/*   Updated: 2023/04/04 18:16:14 by pepe             ###   ########.fr       */
+/*   Updated: 2023/04/05 17:50:48 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,23 @@ char	*expander2(char *post_dolar, int i, char **environment)
 
 int	find_dolar(t_expand *expand, char *command_buf, char **environment)
 {
+	char	*aux;
+
 	if (command_buf[expand->i])
 		expand->i++;
 	if ((ft_isdigit(command_buf[expand->i]) == 1))
 		return (expand->i++);
 	else if (command_buf[expand->i] == '?')
 	{
+		aux = ft_itoa(g_c.dolar_q);
 		expand->i++;
-		return (expand->j += ft_strlen(ft_itoa(g_c.dolar_q)));
+		return (expand->j += ft_strlen(aux), free(aux), expand->j);
 	}
 	else if (command_buf[expand->i] == ' ' || command_buf[expand->i] == '\0')
 	{
 		if (command_buf[expand->i] == ' ')
-		{
 			expand->j++;
-		}
-		expand->i++;
-		expand->j++;
-		return (0);
+		return (expand->i++, expand->j++, 0);
 	}
 	expand->k = expand->i;
 	while (ft_isalnum(command_buf[expand->i]) || command_buf[expand->i] == '_')
@@ -59,9 +58,7 @@ void	second_elif(t_expand *expand, char *command_buf, char **environment)
 	while (command_buf[expand->i] != '\"' && command_buf[expand->i])
 	{
 		if (command_buf[expand->i] == '$')
-		{
 			find_dolar(expand, command_buf, environment);
-		}
 		else
 		{
 			expand->j++;
@@ -69,9 +66,7 @@ void	second_elif(t_expand *expand, char *command_buf, char **environment)
 		}
 	}
 	if (command_buf[expand->i])
-	{
 		expand->i++;
-	}
 }
 
 /*i para contar la posicion del string

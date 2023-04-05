@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:41:16 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/03 23:12:05 by pepe             ###   ########.fr       */
+/*   Updated: 2023/04/04 19:38:42 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MINISHELL_H
 
 /*__HEADER FILES__*/
-# include "minishell.h"
 # include "libs.h"
 
 /*__READLINE______*/
