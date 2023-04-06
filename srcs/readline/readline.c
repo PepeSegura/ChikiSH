@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   readline.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/04 21:20:24 by pepe             ###   ########.fr       */
+/*   Updated: 2023/04/06 17:30:50 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void	readline_create(void)
 
 	while (1)
 	{
-		line = readline(PROMPT);
+		if (isatty(fileno(stdin)))
+			line = readline(PROMPT);
 		command_buf = ft_strtrim(line, " \f\n\r\t\v");
 		free(line);
 		if (!command_buf)
@@ -80,6 +81,7 @@ void	readline_create(void)
 		free(command_buf);
 		g_c.tokens = tokens_to_pipas(g_c.tokens);
 		expand_while();
+		ft_print_matrix(g_c.tokens, "tok");
 		pipas_handler();
 		ft_free_matrix(g_c.tokens);
 	}
