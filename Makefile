@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/07 00:42:15 by psegura-         ###   ########.fr        #
+#    Updated: 2023/04/07 19:50:48 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,10 +86,15 @@ re: fclean all
 norma:
 	@echo 6e6f726d696e65747465207372637320696e6320313e2f6465762f6e756c6c3b206966205b5b20243f202d65712030205d5d3b207468656e206e6f726d696e65747465207372637320696e633b20656c7365206e6f726d696e65747465207372637320696e63207c206772657020274572726f7227203b206669 | xxd -r -p | zsh
 
-commit:
-	# date = $(date)
-	echo $(date)
-	# @git add .
-	# @git commit -m ""
+date := $(shell date +"%a %b %_d %H:%M")
+# text := $(shell read text)
 
-.PHONY: all clean fclean re norma commit
+mytarget:
+
+commit: fclean
+	@git add .
+	@./input.sh
+	@INPUT_VAR=$$(cat input.txt) && git commit -m "$(date):  $$INPUT_VAR" && rm -f input.txt
+	@git push
+
+.PHONY: all clean fclean re norma commit mytarget
