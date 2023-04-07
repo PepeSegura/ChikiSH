@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/07 19:51:58 by pepe             ###   ########.fr        #
+#    Updated: 2023/04/07 19:55:54 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS =											\
 												\
 		srcs/utils/errors.c						\
 		srcs/utils/environment.c				\
+												\
 		srcs/readline/expand_token.c			\
 		srcs/readline/malloc_expand_token.c		\
 		srcs/readline/malloc_expand_token_aux.c	\
@@ -52,8 +53,8 @@ SRCS =											\
 		srcs/builtins/export.c					\
 		srcs/builtins/pwd.c						\
 		srcs/builtins/unset.c					\
-												\
 		srcs/builtins/signals.c					\
+												\
 		
 
 OBJS = $(SRCS:.c=.o)
@@ -87,7 +88,6 @@ norma:
 	@echo 6e6f726d696e65747465207372637320696e6320313e2f6465762f6e756c6c3b206966205b5b20243f202d65712030205d5d3b207468656e206e6f726d696e65747465207372637320696e633b20656c7365206e6f726d696e65747465207372637320696e63207c206772657020274572726f7227203b206669 | xxd -r -p | zsh
 
 date := $(shell date +"%a %b %_d %H:%M")
-# text := $(shell read text)
 
 commit: fclean
 	@git add .
