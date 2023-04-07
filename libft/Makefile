@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 20:21:59 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/04 16:01:34 by pepe             ###   ########.fr        #
+#    Updated: 2023/04/07 19:53:04 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,16 +134,16 @@ $(OBJDIR):
 
 $(NAME): $(OBJS)
 	@ar -rcs $(NAME) $(OBJS)
-	@echo -e "$(CYAN)Libft Done!"
+	@echo -e "$(CYAN)Libft Done!$(WHITE)"
 
 clean: reset
 	@rm -rf $(OBJDIR)
-	@echo -e "$(CYAN)Objects Removed!"
+	@echo -e "$(CYAN)Objects Removed!$(WHITE)"
 
 
 fclean: reset clean
 	@rm -rf $(NAME)
-	@echo -e "$(CYAN)Libft.a Removed!"
+	@echo -e "$(CYAN)Libft.a Removed!$(WHITE)"
 
 re: fclean all
 

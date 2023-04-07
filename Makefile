@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/07 19:50:48 by pepe             ###   ########.fr        #
+#    Updated: 2023/04/07 19:51:58 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,12 +89,10 @@ norma:
 date := $(shell date +"%a %b %_d %H:%M")
 # text := $(shell read text)
 
-mytarget:
-
 commit: fclean
 	@git add .
 	@./input.sh
 	@INPUT_VAR=$$(cat input.txt) && git commit -m "$(date):  $$INPUT_VAR" && rm -f input.txt
 	@git push
 
-.PHONY: all clean fclean re norma commit mytarget
+.PHONY: all clean fclean re norma commit
