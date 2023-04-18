@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:25:30 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/29 02:41:27 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:21:27 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			what_cmd(char *argv);
 
 /*___EXEC_CMD___*/
 // void		ft_exec(char **cmd);
-void	pipas_handler(void);
+void		pipas_handler(void);
 
 /*___FIND_COMMAND___*/
 char		*check_path(void);

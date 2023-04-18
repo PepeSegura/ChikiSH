@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokens_to_pipas.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:08:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/24 02:09:42 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/04/18 19:42:41 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 int	token_is_symbol(char *token)
 {
 	int			i;
-	static char	*symbols[] = {"<<", "<", ">", ">>", "|", NULL};
+	const char	*symbols[] = {"<<", "<", ">", ">>", "|", NULL};
 
 	i = -1;
 	if (!token)

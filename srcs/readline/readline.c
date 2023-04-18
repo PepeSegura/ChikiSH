@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/06 17:30:50 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:00:51 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	read_exit(char *command_buf)
 {
 	if (!ft_strcmp(command_buf, "exit") || !ft_strcmp(command_buf, "quit")
 		|| !ft_strcmp(command_buf, "e") || !ft_strcmp(command_buf, "q"))
-		{
-			free(command_buf);
-			return (1);
-		}
+	{
+		free(command_buf);
+		return (1);
+	}
 	return (0);
 }
 
@@ -30,8 +30,6 @@ void	expand_while(void)
 	{
 		g_c.tokens[g_c.tok_count] = expan_token(g_c.tokens[g_c.tok_count],
 				g_c.env);
-		if (token_is_symbol(g_c.tokens[g_c.tok_count]))
-			g_c.pipas++;
 		g_c.tok_count++;
 	}
 	g_c.tokens[g_c.tok_count] = NULL;
@@ -79,9 +77,10 @@ void	readline_create(void)
 		if (ft_continue(command_buf))
 			continue ;
 		free(command_buf);
-		g_c.tokens = tokens_to_pipas(g_c.tokens);
-		expand_while();
 		ft_print_matrix(g_c.tokens, "tok");
+		g_c.tokens = tokens_to_pipas(g_c.tokens);
+		ft_print_matrix(g_c.tokens, "tok2");
+		expand_while();
 		pipas_handler();
 		ft_free_matrix(g_c.tokens);
 	}

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/07 00:39:38 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/17 13:54:07 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ft_exec(const char *argv)
 	if (cmd == NULL)
 		exit_failure("malloc", NULL, 1);
 	path = cmd[0];
-	if (cmd[0][0] != '/' && cmd[0][0] != '.')
+	if (cmd[0][0] != '/'
+		&& ft_strncmp(cmd[0], "./", 2) && ft_strncmp(cmd[0], "../", 3))
 	{
 		path = only_path(cmd[0]);
 		if (!path)
@@ -51,6 +52,7 @@ void	child_process(int i)
 		dup2(g_c.prev, STDIN_FILENO);
 	if (i < g_c.tok_count - 1)
 		dup2(g_c.pipa[LEFT], STDOUT_FILENO);
+	// TODO redir
 	ft_exec(g_c.tokens[i]);
 }
 
@@ -91,25 +93,10 @@ void	pipex(void)
 		i++;
 	}
 	ft_wait(&status);
-	printf("status: [%d]\n", status);
+	// printf("status: [%d]\n", status);
 }
-
-
 
 void	pipas_handler(void)
 {
-	// pid_t	pid;
-	// int		status;
-
-	// // ft_print_matrix(g_c.tokens, "tok");
-	// pid = fork();
-	// if (pid < 0)
-	// 	ft_perror("fork ");
-	// if (pid == CHILD)
-	// {
-		pipex();
-	// 	exit(0);
-	// }
-	// else
-	// 	waitpid(ANY, &status, 0);
+	pipex();
 }
