@@ -70,7 +70,7 @@ READLINE = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)
 $(NAME): objs $(OBJS)
 	@make -C libft
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(READLINE) -o $(NAME)
-	@echo -e "$(CYAN) ❄️ Operation Helsinki Completed ❄️ $(WHITE)"
+	@echo -e "$(CYAN) MINISHELL RIDERS GOING AFTER YOU $(WHITE)"
 
 objs:
 	@mkdir -p objs/srcs/intro objs/srcs/readline objs/srcs/tokenizer objs/srcs/executor objs/srcs/utils objs/srcs/builtins
