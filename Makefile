@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
+#    By: agserran <agserran@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/19 13:21:29 by pepe             ###   ########.fr        #
+#    Updated: 2023/04/19 14:19:51 by agserran         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRCS =											\
 		srcs/builtins/pwd.c						\
 		srcs/builtins/unset.c					\
 		srcs/builtins/signals.c					\
+		srcs/redirect/prueba.c					\
 												\
 		
 

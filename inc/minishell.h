@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:41:16 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/18 20:00:58 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:17:02 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,12 @@
 /*__ERROR_MESSAGES_________*/
 # include "error_messages.h"
 
+/*__REDIRECT______*/
+# include "redirect.h"
+
 /*__LIBFT_________*/
 # include "../libft/inc/libft.h"
+
 
 # define READ_END	0
 # define WRITE_END	1
