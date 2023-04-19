@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/18 18:51:23 by psegura-         ###   ########.fr        #
+#    Updated: 2023/04/19 13:21:29 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,31 +57,35 @@ SRCS =											\
 												\
 		
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:%.c=objs/%.o)
 
 LIB = libft/libft.a
 
 CC = gcc
-CFLAGS	 = -Wall -Wextra -Werror -g3 -fsanitize=address,leak
+CFLAGS	 = -Wall -Wextra -Werror -g3 -fsanitize=address -fsanitize=leak
 CFLAGS	+= -I inc
 CFLAGS	+= -I libft
 READLINE = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)/.brew/opt/readline/include
 
-date := $(shell date +"%a %b %_d %H:%M")
-
-$(NAME): $(OBJS)
+$(NAME): objs $(OBJS)
 	@make -C libft
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(READLINE) -o $(NAME)
 	@echo -e "$(CYAN) ❄️ Operation Helsinki Completed ❄️ $(WHITE)"
-	
+
+objs:
+	@mkdir -p objs/srcs/intro objs/srcs/readline objs/srcs/tokenizer objs/srcs/executor objs/srcs/utils objs/srcs/builtins
+
+objs/%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 all: $(NAME)
 
 clean:
-	make clean -C libft
-	@rm -rf $(OBJS)
+	@make clean -C libft
+	@rm -rf objs
 
 fclean: clean
-	make fclean -C libft
+	@make fclean -C libft
 	@rm -f $(NAME)
 
 re: fclean all
