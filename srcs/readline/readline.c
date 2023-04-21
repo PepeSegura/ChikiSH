@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/18 20:00:51 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:10:29 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,12 @@ void	readline_create(void)
 		if (ft_continue(command_buf))
 			continue ;
 		free(command_buf);
-		ft_print_matrix(g_c.tokens, "tok");
+		// ft_print_matrix(g_c.tokens, "tok");
 		g_c.tokens = tokens_to_pipas(g_c.tokens);
-		ft_print_matrix(g_c.tokens, "tok2");
+		ft_print_matrix(g_c.tokens, "tok");
 		expand_while();
-		pipas_handler();
+		builtins(g_c.tokens[0]);
+		// pipas_handler();
 		ft_free_matrix(g_c.tokens);
 	}
 }

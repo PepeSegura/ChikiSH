@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:03:40 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/25 17:07:10 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:59:41 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "minishell.h"
 
-int		builtins(char **commands);
+int	builtins(char *commands);
 
 /*__SIGNALS___*/
 void	manage_signal(void);
@@ -29,7 +29,7 @@ int		ft_pwd(char **commands);
 int		ft_env(char **env, char **commands);
 
 /*__CD______*/
-int		ft_cd(char **env, char **commands);
+int		ft_cd(char **commands);
 
 /*__ECHO____*/
 int		ft_echo(char **commands);
