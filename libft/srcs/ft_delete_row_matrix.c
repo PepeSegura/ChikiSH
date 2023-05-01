@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_delete_row_matrix.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 01:48:53 by psegura-          #+#    #+#             */
-/*   Updated: 2023/01/21 12:51:26 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/04/30 01:18:51 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ char	**ft_delete_row_matrix(char **matrix, int delete)
 		c.i++;
 	}
 	aux[c.j] = NULL;
+	ft_free_matrix(matrix);
 	return (aux);
 }

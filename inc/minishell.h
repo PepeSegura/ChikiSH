@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:41:16 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/18 20:00:58 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/01 02:04:50 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 
 /*__TOKENIZER_____*/
 # include "tokenizer.h"
+
+/*__LST_PARSER_____*/
+# include "lst_parser.h"
 
 /*__INTRO_________*/
 # include "intro.h"
