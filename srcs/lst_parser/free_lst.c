@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cpy_matrix.c                                    :+:      :+:    :+:   */
+/*   free_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 01:52:23 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/01 01:22:58 by pepe             ###   ########.fr       */
+/*   Created: 2023/05/01 01:58:05 by pepe              #+#    #+#             */
+/*   Updated: 2023/05/01 03:10:22 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-char	**ft_cpy_matrix(char **matrix)
+void	free_re(t_redirect *re)
 {
-	char	**aux;
-	int		i;
+	if (re == NULL)
+		return ;
+	free_re(re->next);
+	free(re->file);
+	free(re);
+}
 
-	if (!matrix)
-		return (NULL);
-	aux = malloc(sizeof(char *) * (ft_len_matrix(matrix) + 1));
-	if (!aux)
-		return (NULL);
-	i = 0;
-	while (matrix[i])
-	{
-		aux[i] = ft_strdup(matrix[i]);
-		if (!aux[i])
-			return (ft_free_matrix(aux), NULL);
-		i++;
-	}
-	aux[i] = NULL;
-	return (aux);
+void	free_lst(t_info_cmd *list)
+{
+	if (list == NULL)
+		return ;
+	free_re(list->re);
+	list->re = NULL;
+	free_lst(list->next);
+	free(list->cmd);
+	free(list);
 }

@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/19 13:38:08 by pepe             ###   ########.fr        #
+#    Updated: 2023/05/01 02:12:22 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,13 @@ SRCS =											\
 		srcs/builtins/unset.c					\
 		srcs/builtins/signals.c					\
 												\
+		srcs/lst_parser/cmd_lst.c				\
+		srcs/lst_parser/command.c				\
+		srcs/lst_parser/free_lst.c				\
+		srcs/lst_parser/lst.c					\
+		srcs/lst_parser/print_lst.c				\
+		srcs/lst_parser/redir_lst.c				\
+												\
 
 OBJS = $(SRCS:%.c=objs/%.o)
 
@@ -74,7 +81,7 @@ $(NAME): objs $(OBJS)
 	@echo -e "$(CYAN) MINISHELL RIDERS GOING AFTER YOU $(WHITE)"
 
 objs:
-	@mkdir -p objs/srcs/intro objs/srcs/readline objs/srcs/tokenizer objs/srcs/executor objs/srcs/utils objs/srcs/builtins
+	@mkdir -p objs/srcs/intro objs/srcs/readline objs/srcs/tokenizer objs/srcs/executor objs/srcs/utils objs/srcs/builtins objs/srcs/lst_parser
 
 objs/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
