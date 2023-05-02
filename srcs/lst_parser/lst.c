@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:57:55 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/02 01:13:43 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/03 01:12:21 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	populate_cmd_lst(t_info_cmd **info, char *input)
 	lst_addback_cmd(info, new_node);
 }
 
-void	process_input(char **input)
+t_info_cmd	*process_input(char **input)
 {
 	t_info_cmd	*info;
 	int			i;
@@ -74,8 +74,7 @@ void	process_input(char **input)
 		populate_cmd_lst(&info, input[i]);
 		i++;
 	}
-	print_lst(info);
-	free_lst(info);
+	return (info);
 }
 
 // int	main(int argc, char **argv, char **env)

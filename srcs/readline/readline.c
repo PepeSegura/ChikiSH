@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/02 01:23:02 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/03 01:14:43 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,9 @@ int	ft_continue(char *command_buf)
 
 void	readline_create(void)
 {
-	char	*command_buf;
-	char	*line;
-	// TODO: revisar
-	// t_info_cmd	*info = NULL;
+	char		*command_buf;
+	char		*line;
+	t_info_cmd	*info = NULL;
 
 	while (1)
 	{
@@ -82,7 +81,9 @@ void	readline_create(void)
 		g_c.tokens = tokens_to_pipas(g_c.tokens);
 		ft_print_matrix(g_c.tokens, "tok");
 		expand_while();
-		process_input(g_c.tokens);
+		info = process_input(g_c.tokens);
+		print_lst(info);
+		free_lst(info);
 		// pipas_handler();
 		ft_free_matrix(g_c.tokens);
 	}
