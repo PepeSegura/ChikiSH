@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 01:13:06 by davgarci          #+#    #+#             */
-/*   Updated: 2023/04/04 18:16:35 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/02 01:55:15 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*copy_expanded(t_expand *expand, char *command_buf, char **environment,
 	char *new_str)
 {
 	expand->i = 0;
-	while (command_buf[expand->i])
+	while (expand->i < ft_strlen(command_buf) && command_buf[expand->i])
 	{
 		if (command_buf[expand->i] == '$')
 			new_str = cp_find_dolar(expand, command_buf, environment, new_str);

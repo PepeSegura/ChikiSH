@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:58:05 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/01 03:10:22 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/02 01:18:37 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	free_lst(t_info_cmd *list)
 	list->re = NULL;
 	free_lst(list->next);
 	free(list->cmd);
+	ft_free_matrix(list->cmd_args);
 	free(list);
 }

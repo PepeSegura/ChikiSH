@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 01:52:23 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/01 01:22:58 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/02 01:13:37 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char	**ft_cpy_matrix(char **matrix)
 		i++;
 	}
 	aux[i] = NULL;
+	ft_free_matrix(matrix);
 	return (aux);
 }

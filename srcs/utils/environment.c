@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   environment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:35:36 by davgarci          #+#    #+#             */
-/*   Updated: 2023/04/18 19:25:28 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:12:28 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,22 @@
 
 char	**ft_get_env(char **env)
 {
-	return (ft_cpy_matrix(env));
+		char	**aux;
+	int		i;
+
+	if (!env)
+		return (NULL);
+	aux = malloc(sizeof(char *) * (ft_len_matrix(env) + 1));
+	if (!aux)
+		return (NULL);
+	i = 0;
+	while (env[i])
+	{
+		aux[i] = ft_strdup(env[i]);
+		if (!aux[i])
+			return (ft_free_matrix(aux), NULL);
+		i++;
+	}
+	aux[i] = NULL;
+	return (aux);
 }

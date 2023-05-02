@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:56:46 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/01 03:04:41 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/01 16:04:45 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ t_redirect	*lst_new_redirect(int type, char *file);
 void		print_lst(t_info_cmd *list);
 void		free_lst(t_info_cmd *list);
 int			is_command(char *cmd, char **env);
-void		process_input(char **input, char **env);
+void		process_input(char **input);
 
 #endif

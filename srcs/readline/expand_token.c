@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_token.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 17:57:27 by davgarci          #+#    #+#             */
-/*   Updated: 2023/04/05 20:24:35 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/02 01:55:18 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	second_elif(t_expand *expand, char *command_buf, char **environment)
 	j para contar lo que necesitamos malloquear*/
 void	counter_reserv(t_expand *expand, char *command_buf, char **environment)
 {
-	while (command_buf[expand->i])
+	while (expand->i < ft_strlen(command_buf) && command_buf[expand->i])
 	{
 		if (command_buf[expand->i] == '$')
 			find_dolar(expand, command_buf, environment);
@@ -104,6 +104,7 @@ char	*expan_token(char *command_buf, char **environment)
 	char		*new_str;
 
 	ft_memset(&expand, 0, sizeof(t_expand));
+	printf("coman_buf %s \n", command_buf);
 	counter_reserv(&expand, command_buf, environment);
 	new_str = malloc_expand(&expand, command_buf, environment);
 	return (new_str);
