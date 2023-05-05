@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
+#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/05/01 02:12:22 by pepe             ###   ########.fr        #
+#    Updated: 2023/05/05 16:15:14 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,9 @@ OBJS = $(SRCS:%.c=objs/%.o)
 LIB = libft/libft.a
 
 CC = gcc
+
+MAKEFLAGS += -j6
+
 CFLAGS	 = -Wall -Wextra -Werror -g3 -fsanitize=address,leak
 CFLAGS	+= -I inc
 CFLAGS	+= -I libft

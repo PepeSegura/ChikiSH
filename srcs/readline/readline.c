@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   readline.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/05 02:00:10 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/05 18:59:15 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	readline_create(void)
 {
 	char		*command_buf;
 	char		*line;
-	t_info_cmd	*info;
+	// t_info_cmd	*info;
 
 	while (1)
 	{
@@ -78,13 +78,17 @@ void	readline_create(void)
 		if (ft_continue(command_buf))
 			continue ;
 		free(command_buf);
+		ft_print_matrix(g_c.tokens, "first");
 		g_c.tokens = tokens_to_pipas(g_c.tokens);
-		ft_print_matrix(g_c.tokens, "tok");
-		expand_while();
-		info = process_input(g_c.tokens);
-		print_lst(info);
-		free_lst(info);
+		ft_print_matrix(g_c.tokens, "pipas");
+		// expand_while();
+		// ft_print_matrix(g_c.tokens, "expanded");
+		//TODO______________________________
+		// info = process_input(g_c.tokens);
+		// print_lst(info);
+		// free_lst(info);
 		// pipas_handler();
+		//TODO______________________________
 		ft_free_matrix(g_c.tokens);
 	}
 }

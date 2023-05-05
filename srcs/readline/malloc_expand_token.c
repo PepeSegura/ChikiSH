@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc_expand_token.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 01:13:06 by davgarci          #+#    #+#             */
-/*   Updated: 2023/05/02 01:55:15 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/05 18:44:02 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	*malloc_expand(t_expand *expand, char *command_buf, char **environment)
 
 	expand->i = 0;
 	expand->n = 0;
-	new_str = (char *)malloc((sizeof(char)) * (expand->j + 1));
+	new_str = (char *)ft_calloc((sizeof(char)) , (expand->j + 1));
 	new_str[expand->j] = '\0';
 	expand->j = 0;
 	new_str = copy_expanded(expand, command_buf, environment, new_str);
