@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_manager.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/17 13:54:07 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/04 23:39:02 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	ft_exec(const char *argv)
 	if (cmd == NULL)
 		exit_failure("malloc", NULL, 1);
 	path = cmd[0];
+	if (!path)
+	{
+		cmd_not_found("");
+		exit_failure(path, cmd, 0);
+	}
 	if (cmd[0][0] != '/'
 		&& ft_strncmp(cmd[0], "./", 2) && ft_strncmp(cmd[0], "../", 3))
 	{

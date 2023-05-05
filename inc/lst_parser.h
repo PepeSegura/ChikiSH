@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:56:46 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/03 01:12:48 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/05 02:19:25 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct s_info_cmd
 	char					*cmd;
 	char					**cmd_args;
 	t_redirect				*re;
-	//char					*out;
 	struct s_info_cmd		*next;
 }	t_info_cmd;
 

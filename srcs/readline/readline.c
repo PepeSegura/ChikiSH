@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/03 01:14:43 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/05 02:00:10 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	readline_create(void)
 {
 	char		*command_buf;
 	char		*line;
-	t_info_cmd	*info = NULL;
+	t_info_cmd	*info;
 
 	while (1)
 	{
