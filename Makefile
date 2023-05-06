@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/05/05 16:15:14 by psegura-         ###   ########.fr        #
+#    Updated: 2023/05/06 13:59:08 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,6 @@ SRCS =											\
 		srcs/builtins/signals.c					\
 												\
 		srcs/lst_parser/cmd_lst.c				\
-		srcs/lst_parser/command.c				\
 		srcs/lst_parser/free_lst.c				\
 		srcs/lst_parser/lst.c					\
 		srcs/lst_parser/print_lst.c				\
@@ -69,7 +68,7 @@ LIB = libft/libft.a
 
 CC = gcc
 
-MAKEFLAGS += -j6
+# MAKEFLAGS += -j6
 
 CFLAGS	 = -Wall -Wextra -Werror -g3 -fsanitize=address,leak
 CFLAGS	+= -I inc

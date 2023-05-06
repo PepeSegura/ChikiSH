@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/05 22:49:26 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/06 14:35:17 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,21 +78,14 @@ void	readline_create(void)
 		if (ft_continue(command_buf))
 			continue ;
 		free(command_buf);
-		ft_print_matrix(g_c.tokens, "first");
 		expand_while();
-		ft_print_matrix(g_c.tokens, "expanded");
-		//TODO: FUNCION DE AGUS SOBRE MATRIX DE ARRIBA
-
 		//TODO---CAUTION-DONT NEED PIPAS
-		g_c.tokens = tokens_to_pipas(g_c.tokens);
-		ft_print_matrix(g_c.tokens, "pipas");
+		//* g_c.tokens = tokens_to_pipas(g_c.tokens);
+		//* ft_print_matrix(g_c.tokens, "pipas");
 		//TODO---CAUTION-DONT NEED PIPAS
-		//TODO______________________________
 		info = process_input(g_c.tokens);
 		print_lst(info);
-		// free_lst(info);
+		free_lst(info);
 		// pipas_handler();
-		//TODO______________________________
-		// ft_free_matrix(g_c.tokens);
 	}
 }
