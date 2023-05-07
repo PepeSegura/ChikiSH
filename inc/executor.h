@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:25:30 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/07 04:35:35 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/07 04:48:20 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define LEFT 1
 
 /*___EXEC_CMD___*/
-void    ft_exec(char **cmd);
+void	ft_exec(char **cmd);
 
 /*___LOCATE_CMD___*/
 char	*check_path(void);
@@ -34,11 +34,11 @@ void	cmd_not_found(char *cmd);
 void	exit_failure(char *err_msg, char **to_free, int flag);
 
 /*___MANAGER_CMD___*/
-void    pipex(t_info_cmd *info);
+void	pipex(t_info_cmd *info);
 
 /*___TYPE_CMD___*/
-int     cmd_is_builtin(char *cmd);
-int     what_cmd(char *argv);
+int		cmd_is_builtin(char *cmd);
+int		what_cmd(char *argv);
 
 /*___UTILS_CMD___*/
 pid_t	create_fork(void);
