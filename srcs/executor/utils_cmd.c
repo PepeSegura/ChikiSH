@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 03:33:59 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/07 04:34:58 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/07 05:03:35 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	wait_child(void)
 
 	close(g_c.pipa[RIGHT]);
 	g_c.prev = 0;
+	g_c.dolar_q = 0;
 	while (1)
 	{
 		pid = waitpid(-1, &status, 0);

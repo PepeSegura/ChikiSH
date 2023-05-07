@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/07 04:51:36 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/07 05:04:26 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,6 @@ void	child_process(int i, t_info_cmd *info)
 		dup2(g_c.pipa[LEFT], STDOUT_FILENO);
 	// TODO redir
 	ft_exec(info->cmd_args);
-}
-
-void	ft_wait(int *status)
-{
-	int	i;
-
-	close(g_c.pipa[RIGHT]);
-	g_c.prev = 0;
-	i = 0;
-	while (i++ < g_c.tok_count)
-		waitpid(ANY, status, 0);
 }
 
 void	pipex(t_info_cmd *info)

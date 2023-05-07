@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 22:16:46 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/06 01:38:47 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/07 04:57:38 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,10 @@
 
 # include "minishell.h"
 
-void	rl_replace_line(const char *text, int clear_undo);
-
 # define PROMPT "\033[0;32m➜  \033[0;36mChikiSH \033[1;33m✗ \033[0m"
 
-typedef struct s_expand {
-	int		i;
-	int		j;
-	int		k;
-	int		l;
-	int		m;
-	int		n;
-	int		flag;
-	char	*expanded;
-	char	*post_expanded;
-	char	*final;
-	char	*dolar;
-}	t_expand;
-
+/*__READLINE__*/
 void	readline_create(void);
-char	*copy_join(char *str1, char *str2, t_expand *expand);
-char	*expan_token(char *command_buf, char **environment);
-char	*expander(char *post_dolar, int i, char **environment);
-char	*malloc_expand(t_expand *expand, char *command_buf, char **environment);
-
-/*__MALLOC_EXPAND_TOKENS_AUX__*/
-char	*cp_expander(char *post_dolar, int i, char **environment);
-void	copy_expanded_aux(t_expand *expand, char *command_buf, char *new_str);
-void	cp_find_dolar_aux(t_expand *expand, char *command_buf, char *new_str);
+void	rl_replace_line(const char *text, int clear_undo);
 
 #endif
