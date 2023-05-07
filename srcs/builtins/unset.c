@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/02/18 19:01:35 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/05/07 04:51:26 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,3 @@ int	ft_unset(char **env, char **args)
 	ft_free_matrix(args);
 	return (EXIT_SUCCESS);
 }
-
-		// printf("DELETE: [%s]\n", args[i]);
