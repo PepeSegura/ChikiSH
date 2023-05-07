@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:56:46 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/05 02:19:25 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/07 02:49:18 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void		print_lst(t_info_cmd *list);
 void		free_lst(t_info_cmd *list);
 int			is_command(char *cmd, char **env);
 t_info_cmd	*process_input(char **input);
+int			ft_lstsize_info(t_info_cmd *lst);
 
 #endif

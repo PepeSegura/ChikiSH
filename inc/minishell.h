@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:41:16 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/01 02:04:50 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/07 04:30:44 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@
 /*__LIBFT_________*/
 # include "../libft/inc/libft.h"
 
-# define READ_END	0
-# define WRITE_END	1
-
 typedef struct s_cosas {
 	char	**env;
 	char	**tokens;
@@ -56,9 +53,10 @@ typedef struct s_cosas {
 	int		redirection_out;
 	int		redirection_in;
 	int		read;
-	int		status_last_command;
 	int		pipa[2];
 	int		prev;
+	pid_t	last_pid;
+	int		status;
 }	t_cosas;
 
 extern t_cosas		g_c;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_type.c                                         :+:      :+:    :+:   */
+/*   type_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 05:11:14 by psegura-          #+#    #+#             */
-/*   Updated: 2023/02/16 06:58:12 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/07 04:05:04 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	cmd_is_builtin(char *cmd)
 	int			type;
 	char		*path;
 	char		**splited;
-	static char	*symbols[] = {"pwd", "env", "cd", "echo", "export",
+	const char	*symbols[] = {"pwd", "env", "cd", "echo", "export",
 		"unset", NULL};
 
 	if (!cmd)

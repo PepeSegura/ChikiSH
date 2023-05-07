@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:25:30 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/10 13:21:27 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/07 04:35:35 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,27 @@
 # define STDLIB		2
 # define OTHER		0
 
-/*___CMD_TYPE___*/
-int			cmd_is_builtin(char *cmd);
-int			what_cmd(char *argv);
+# define RIGHT 0
+# define LEFT 1
 
 /*___EXEC_CMD___*/
-// void		ft_exec(char **cmd);
-void		pipas_handler(void);
+void    ft_exec(char **cmd);
 
-/*___FIND_COMMAND___*/
-char		*check_path(void);
-char		*only_path(char *cmd);
-void		cmd_not_found(char *cmd);
-void		exit_failure(char *err_msg, char **to_free, int flag);
+/*___LOCATE_CMD___*/
+char	*check_path(void);
+char	*only_path(char *cmd);
+void	cmd_not_found(char *cmd);
+void	exit_failure(char *err_msg, char **to_free, int flag);
 
+/*___MANAGER_CMD___*/
+void    pipex(t_info_cmd *info);
+
+/*___TYPE_CMD___*/
+int     cmd_is_builtin(char *cmd);
+int     what_cmd(char *argv);
+
+/*___UTILS_CMD___*/
+pid_t	create_fork(void);
+void	create_pipe(void);
+void	wait_child(void);
 #endif

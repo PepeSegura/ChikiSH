@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   malloc_expand_token.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 01:13:06 by davgarci          #+#    #+#             */
-/*   Updated: 2023/05/05 18:44:02 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/07 03:23:50 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static char *cp_find_dolar_q(t_expand *expand, char *new_str)
+{
+	char	*nbr;
+	char	*result;
+
+	expand->i++;
+	nbr = ft_itoa(g_c.dolar_q);
+	expand->n += ft_strlen(nbr);
+	result = copy_join(new_str, nbr, expand);
+	free(nbr);
+	return (result);
+}
 
 char	*cp_find_dolar(t_expand *expand, char *command_buf, char **environment,
 	char *new_str)
@@ -22,11 +35,7 @@ char	*cp_find_dolar(t_expand *expand, char *command_buf, char **environment,
 		return (new_str);
 	}
 	else if (command_buf[expand->i] == '?')
-	{
-		expand->i++;
-		expand->n += ft_strlen(ft_itoa(g_c.dolar_q));
-		return (copy_join(new_str, ft_itoa(g_c.dolar_q), expand));
-	}
+		return (cp_find_dolar_q(expand, new_str));
 	else if (command_buf[expand->i] == ' ' || command_buf[expand->i] == '\0')
 	{
 		cp_find_dolar_aux(expand, command_buf, new_str);

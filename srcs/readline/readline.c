@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/06 14:35:17 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/07 03:54:30 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	ft_continue(char *command_buf)
 	if (!check_quotes(command_buf))
 	{
 		printf("The quotes are not closed!\n");
+		free(command_buf);
 		return (1);
 	}
 	g_c.tokens = malloc(sizeof(char *) * (count_tokens(command_buf) + 1));
@@ -54,6 +55,7 @@ int	ft_continue(char *command_buf)
 	if (double_symbols(g_c.tokens) == 1)
 	{
 		printf("Invalid symbols!\n");
+		free(command_buf);
 		return (1);
 	}
 	return (0);
@@ -79,13 +81,9 @@ void	readline_create(void)
 			continue ;
 		free(command_buf);
 		expand_while();
-		//TODO---CAUTION-DONT NEED PIPAS
-		//* g_c.tokens = tokens_to_pipas(g_c.tokens);
-		//* ft_print_matrix(g_c.tokens, "pipas");
-		//TODO---CAUTION-DONT NEED PIPAS
 		info = process_input(g_c.tokens);
 		print_lst(info);
+		pipex(info);
 		free_lst(info);
-		// pipas_handler();
 	}
 }

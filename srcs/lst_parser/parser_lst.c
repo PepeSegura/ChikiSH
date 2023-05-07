@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:57:55 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/06 14:01:51 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/07 03:31:31 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,20 +86,6 @@ t_info_cmd	*process_input(char **input)
 	while (populate_cmd_lst(&info, &aux, &i))
 		;
 	ft_free_matrix(aux);
+	g_c.tok_count = ft_lstsize_info(info);
 	return (info);
 }
-
-// int	main(int argc, char **argv, char **env)
-// {
-// 	(void)argc, (void)argv;
-//     t_info_cmd	*info;
-// 	char		*input[] = {"echo pepe", "ls -la", "cat -e > pepe", NULL};
-// 	int			i = -1;
-
-// 	info = NULL;
-// 	while (input[++i])
-// 		populate_cmd_lst(&info, input[i], env);
-// 	print_lst(info);
-// 	free_lst(info);
-// 	return (0);
-// }
