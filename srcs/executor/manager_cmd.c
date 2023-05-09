@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manager_cmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/07 05:04:26 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/09 21:35:19 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void	child_process(int i, t_info_cmd *info)
 {
 	close(g_c.pipa[RIGHT]);
+	//TO DO DESPUES DEL DUP HAY QUE CERRAR AMBOS EN HIJOS(LOS BUILTINGS NO HAY QUE HACER) 
 	if (i > 0)
 		dup2(g_c.prev, STDIN_FILENO);
 	if (i < g_c.tok_count - 1)

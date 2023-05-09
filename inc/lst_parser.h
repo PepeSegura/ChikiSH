@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_parser.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:56:46 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/07 02:49:18 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/09 13:28:18 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,5 @@ int			is_command(char *cmd, char **env);
 t_info_cmd	*process_input(char **input);
 int			ft_lstsize_info(t_info_cmd *lst);
 
+int			have_redir(t_info_cmd *info);
 #endif
