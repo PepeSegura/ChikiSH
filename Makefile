@@ -6,7 +6,7 @@
 #    By: agserran <agserran@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/05/09 13:27:26 by agserran         ###   ########.fr        #
+#    Updated: 2023/05/10 01:08:09 by agserran         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ SRCS =											\
 		srcs/lst_parser/redir_lst.c				\
 		srcs/lst_parser/utils_lst.c				\
 												\
-		srcs/redirections/redirect.c										\
+		srcs/redirections/redirect.c			\
 												\
 
 OBJS = $(SRCS:%.c=objs/%.o)
@@ -87,7 +87,7 @@ $(NAME): objs $(OBJS)
 	@echo -e "$(CYAN) MINISHELL RIDERS GOING AFTER YOU $(WHITE)"
 
 objs:
-	@mkdir -p objs/srcs/intro objs/srcs/readline objs/srcs/tokenizer objs/srcs/executor objs/srcs/utils objs/srcs/builtins objs/srcs/lst_parser
+	@mkdir -p objs/srcs/intro objs/srcs/readline objs/srcs/tokenizer objs/srcs/executor objs/srcs/utils objs/srcs/builtins objs/srcs/lst_parser objs/srcs/redirections
 
 objs/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

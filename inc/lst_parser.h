@@ -6,7 +6,7 @@
 /*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:56:46 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/09 13:28:18 by agserran         ###   ########.fr       */
+/*   Updated: 2023/05/10 01:06:07 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ int			is_command(char *cmd, char **env);
 t_info_cmd	*process_input(char **input);
 int			ft_lstsize_info(t_info_cmd *lst);
 
-int			have_redir(t_info_cmd *info);
 #endif
