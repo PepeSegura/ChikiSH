@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:25:30 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/10 16:46:10 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:57:30 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 void	ft_exec(char **cmd);
 
 /*___LOCATE_CMD___*/
-char	*check_path(void);
+char	*check_path(char *cmd);
 char	*only_path(char *cmd);
 void	cmd_not_found(char *cmd);
 void	exit_failure(char *err_msg, char **to_free, int flag);

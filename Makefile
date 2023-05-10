@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agserran <agserran@student.42.fr>          +#+  +:+       +#+         #
+#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/05/10 01:08:09 by agserran         ###   ########.fr        #
+#    Updated: 2023/05/10 16:58:05 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,10 @@ SRCS =											\
 		srcs/tokenizer/store_tokens_utils.c		\
 		srcs/tokenizer/tokens_to_pipas.c		\
 		srcs/tokenizer/utils.c					\
+		srcs/tokenizer/expand_token.c			\
+		srcs/tokenizer/malloc_expand_token.c	\
+		srcs/tokenizer/malloc_expand_token_aux.c\
+		srcs/tokenizer/copy_join.c 				\
 												\
 		srcs/executor/locate_cmd.c				\
 		srcs/executor/exec_cmd.c				\
@@ -40,11 +44,6 @@ SRCS =											\
 												\
 		srcs/utils/errors.c						\
 		srcs/utils/environment.c				\
-												\
-		srcs/tokenizer/expand_token.c			\
-		srcs/tokenizer/malloc_expand_token.c	\
-		srcs/tokenizer/malloc_expand_token_aux.c\
-		srcs/tokenizer/copy_join.c 				\
 												\
 		srcs/builtins/builtins.c				\
 		srcs/builtins/cd.c						\

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:23:43 by agserran          #+#    #+#             */
-/*   Updated: 2023/05/10 16:48:20 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:06:00 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	open_redirect(t_info_cmd *info, t_last_red *last)
 	fd[1] = 0;
 	while (info->re)
 	{
-        dprintf(2, "type: [%d] file: [%s]\n", info->re->type, info->re->file);
+        // dprintf(2, "type: [%d] file: [%s]\n", info->re->type, info->re->file);
 		if (info->re->type == 2 || info->re->type == 3)
 		{
 			if (info->re->type == 2)
@@ -38,7 +38,7 @@ void	open_redirect(t_info_cmd *info, t_last_red *last)
 			dup2(fd[0], STDIN_FILENO);
 			close(fd[0]);
 		}
-        dprintf(2, "fd[0]: %d\nfd[1]: %d\n", fd[0], fd[1]);
+        // dprintf(2, "fd[0]: %d\nfd[1]: %d\n", fd[0], fd[1]);
 		info->re = info->re->next;
 	}
 }
