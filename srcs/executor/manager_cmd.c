@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manager_cmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/10 01:17:46 by agserran         ###   ########.fr       */
+/*   Updated: 2023/05/10 02:02:50 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,23 @@
 
 void	child_process(int i, t_info_cmd *info)
 {
+	int	flag;
+
+	flag = 1;
 	open_redirect(info);
 	close(g_c.pipa[RIGHT]);
+	//TODO: REVISAR POR QUE INFO->RE ES NULL SIEMPRE!!!!
+	dprintf(2, "hola manolo [%p]\n", info->re);
+	if (info->re)
+	{
+		if (info->re->type == 2 || info->re->type == 3)
+			flag = 0;
+	}
+	dprintf(2, "flag [%d]\n", flag);
 	//TO DO DESPUES DEL DUP HAY QUE CERRAR AMBOS EN HIJOS(LOS BUILTINGS NO HAY QUE HACER) 
 	if (i > 0)
 		dup2(g_c.prev, STDIN_FILENO);
-	if (i < g_c.tok_count - 1)
+	if (i < g_c.tok_count - 1 && flag == 1)
 		dup2(g_c.pipa[LEFT], STDOUT_FILENO);
 	ft_exec(info->cmd_args);
 }
