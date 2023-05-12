@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manager_cmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/10 17:06:31 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:06:10 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	child_process(int i, t_info_cmd *info)
 		dup2(g_c.prev, STDIN_FILENO);
 	if (i < g_c.tok_count - 1 && flag == 1)
 		dup2(g_c.pipa[LEFT], STDOUT_FILENO);
-	ft_exec(info->cmd_args);
+	if (cmd_is_builtin(info->cmd) == BUILTIN)
+		builtin_executor(info->cmd_args, g_c.env);
+	else
+		ft_exec(info->cmd_args);
 }
 
 void	pipex(t_info_cmd *info)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 05:11:14 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/07 04:05:04 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/12 20:24:04 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ int	cmd_is_builtin(char *cmd)
 {
 	int			i;
 	int			type;
-	char		*path;
-	char		**splited;
+	// char		*path;
+	// char		**splited;
 	const char	*symbols[] = {"pwd", "env", "cd", "echo", "export",
 		"unset", NULL};
 
 	if (!cmd)
 		return (0);
-	path = NULL;
-	splited = ft_split(cmd, SPACE);
-	free((void *)cmd);
-	if (splited == NULL)
+	//path = NULL;
+	//splited = ft_split(cmd, SPACE);
+	//free((void *)cmd);
+	if (cmd == NULL)
 		exit_failure("malloc", NULL, 1);
-	path = splited[0];
+	//path = splited[0];
 	type = OTHER;
 	i = -1;
 	while (symbols[++i])
-		if (ft_strcmp(path, symbols[i]) == 0)
+		if (ft_strcmp(cmd, symbols[i]) == 0)
 			type = BUILTIN;
 	return (type);
 }
@@ -73,4 +73,22 @@ int	what_cmd(char *argv)
 		return (STDLIB);
 	else
 		return (OTHER);
+}
+
+void	builtin_executor(char **cmd, char **env)
+{
+	if (ft_strcmp(cmd[0], "pwd") == 0)
+		ft_pwd(cmd);
+	if (ft_strcmp(cmd[0], "env") == 0)
+		ft_env(env, cmd);
+	if (ft_strcmp(cmd[0], "cd") == 0)
+		ft_cd(env, cmd);
+	if (ft_strcmp(cmd[0], "echo") == 0)
+		ft_echo(cmd);
+	if (ft_strcmp(cmd[0], "export") == 0)
+		ft_export(env, cmd);
+	if (ft_strcmp(cmd[0], "unset") == 0)
+		ft_unset(env, cmd);
+	if (ft_strcmp(cmd[0], "exit") == 0)
+		ft_exit(cmd);
 }
