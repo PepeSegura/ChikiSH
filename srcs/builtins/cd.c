@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:01:49 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/25 04:19:23 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:20:48 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,5 @@ int	ft_cd(char **env, char **commands)
 	}
 	else if (chdir(path) == -1)
 		printf("cd: No such file or directory\n");
-	ft_free_matrix(commands);
 	return (EXIT_SUCCESS);
 }

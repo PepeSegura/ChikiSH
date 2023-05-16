@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:04 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/25 04:16:10 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:21:22 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_print_exported(char **matrix)
 	return (0);
 }
 
-int	ft_export(char **env, char **args)
+int	ft_export(char **args)
 {
 	int		pos;
 	int		i;
@@ -67,7 +67,7 @@ int	ft_export(char **env, char **args)
 	char	*aux;
 
 	if (!args[1])
-		return (ft_print_exported(env));
+		return (ft_print_exported(g_c.env));
 	i = 0;
 	while (args[++i])
 	{
@@ -81,8 +81,7 @@ int	ft_export(char **env, char **args)
 		temp = ft_add_row_matrix(g_c.env, args[i]);
 		ft_free_matrix(g_c.env);
 		g_c.env = ft_cpy_matrix(temp);
-		ft_free_matrix(temp);
+		//ft_free_matrix(temp);
 	}
-	ft_free_matrix(env);
 	return (EXIT_SUCCESS);
 }

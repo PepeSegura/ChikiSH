@@ -6,7 +6,7 @@
 /*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/12 20:06:10 by agserran         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:07:08 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 void	child_process(int i, t_info_cmd *info)
 {
+	//signal_child();
 	int	flag;
 	t_last_red last;
 
@@ -38,8 +39,8 @@ void	child_process(int i, t_info_cmd *info)
 		dup2(g_c.prev, STDIN_FILENO);
 	if (i < g_c.tok_count - 1 && flag == 1)
 		dup2(g_c.pipa[LEFT], STDOUT_FILENO);
-	if (cmd_is_builtin(info->cmd) == BUILTIN)
-		builtin_executor(info->cmd_args, g_c.env);
+	/*if (cmd_is_builtin(info->cmd) == BUILTIN)
+		builtin_executor(info->cmd_args, g_c.env);*/
 	else
 		ft_exec(info->cmd_args);
 }
@@ -52,9 +53,11 @@ void	pipex(t_info_cmd *info)
 	i = 0;
 	while (i <= g_c.tok_count - 1)
 	{
+		if (cmd_is_builtin(info->cmd_args[0]) == BUILTIN)
+		 	builtin_executor(info->cmd_args, g_c.env);
 		create_pipe();
 		pid = create_fork();
-		if (pid == CHILD)
+		if (pid == CHILD && (cmd_is_builtin(info->cmd_args[0]) != BUILTIN))
 			child_process(i, info);
 		else
 		{

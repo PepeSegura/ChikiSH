@@ -6,7 +6,7 @@
 /*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 05:11:14 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/12 20:24:04 by agserran         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:20:20 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,16 @@ void	builtin_executor(char **cmd, char **env)
 {
 	if (ft_strcmp(cmd[0], "pwd") == 0)
 		ft_pwd(cmd);
-	if (ft_strcmp(cmd[0], "env") == 0)
-		ft_env(env, cmd);
-	if (ft_strcmp(cmd[0], "cd") == 0)
+	else if (ft_strcmp(cmd[0], "env") == 0)
+		ft_env(env);
+	else if (ft_strcmp(cmd[0], "cd") == 0)
 		ft_cd(env, cmd);
-	if (ft_strcmp(cmd[0], "echo") == 0)
+	else if (ft_strcmp(cmd[0], "echo") == 0)
 		ft_echo(cmd);
-	if (ft_strcmp(cmd[0], "export") == 0)
-		ft_export(env, cmd);
-	if (ft_strcmp(cmd[0], "unset") == 0)
-		ft_unset(env, cmd);
-	if (ft_strcmp(cmd[0], "exit") == 0)
+	else if (ft_strcmp(cmd[0], "export") == 0)
+		ft_export(cmd);
+	else if (ft_strcmp(cmd[0], "unset") == 0)
+		ft_unset(cmd);
+	else if (ft_strcmp(cmd[0], "exit") == 0)
 		ft_exit(cmd);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:01:54 by psegura-          #+#    #+#             */
-/*   Updated: 2023/02/18 18:58:51 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:18:00 by agserran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int	ft_echo(char **commands)
 	}
 	if (menos_n == 0)
 		ft_putchar_fd('\n', STDOUT_FILENO);
-	ft_free_matrix(commands);
+	// ft_free_matrix(commands);
 	return (EXIT_SUCCESS);
 }
