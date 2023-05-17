@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_parser.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:56:46 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/07 02:49:18 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/10 16:43:43 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,18 @@
 # define APEND	">>"
 # define TRUNC	">"
 
-typedef struct s_redirect
-{
+typedef struct s_last_red {
+	int		type;
+	char	*file;
+}	t_last_red;
+
+typedef struct s_redirect {
 	int					type;
 	char				*file;
 	struct s_redirect	*next;
 }	t_redirect;
 
-typedef struct s_info_cmd
-{
+typedef struct s_info_cmd {
 	char					*cmd;
 	char					**cmd_args;
 	t_redirect				*re;

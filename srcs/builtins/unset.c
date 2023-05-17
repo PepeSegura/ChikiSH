@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/07 04:51:26 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/17 11:01:13 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	check_syntax(char *str)
 	return (1);
 }
 
-int	ft_unset(char **env, char **args)
+int	ft_unset(char **args)
 {
 	int		pos;
 	char	*to_find;
@@ -42,10 +42,11 @@ int	ft_unset(char **env, char **args)
 		to_find = ft_strjoin(args[i], "=");
 		pos = ft_locate_str_in_matrix(g_c.env, to_find);
 		free(to_find);
-		g_c.env = ft_delete_row_matrix(g_c.env, pos);
+		if (pos != -10)
+			g_c.env = ft_delete_row_matrix(g_c.env, pos);
 		i++;
 	}
-	ft_free_matrix(env);
-	ft_free_matrix(args);
+	if (g_c.tok_count > 1)
+		exit(EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }

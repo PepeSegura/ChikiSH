@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   locate_cmd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:26:54 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/07 04:14:33 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/10 17:57:22 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*check_path(void)
+char	*check_path(char *cmd)
 {
 	int	i;
 
@@ -23,7 +23,9 @@ char	*check_path(void)
 			return (g_c.env[i] + 5);
 		i++;
 	}
-	ft_print_error("There is no PATH defined in the environment");
+		ft_putstr_fd(cmd, 2);
+	ft_putstr_fd(": No such file or directory\n", 2);
+	exit(127);
 	return (0);
 }
 
@@ -35,7 +37,7 @@ char	*only_path(char *cmd)
 	char		*path_cmd;
 	const char	*env;
 
-	env = check_path();
+	env = check_path(cmd);
 	env_paths = ft_split(env, ':');
 	i = 0;
 	while (env_paths[i])
