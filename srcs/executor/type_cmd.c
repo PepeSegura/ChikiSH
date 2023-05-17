@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 05:11:14 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/17 08:19:28 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/17 09:32:12 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	cmd_is_builtin(char *cmd)
 	const char	*symbols[] = {"pwd", "env", "cd", "echo", "export",
 		"unset", NULL};
 
-	if (!cmd)
-		return (0);
-	if (cmd == NULL)
-		exit_failure("malloc", NULL, 1);
+	// if (!cmd)
+	// 	return (0);
+	// if (cmd == NULL)
+	// 	exit_failure("malloc", NULL, 1);
 	type = OTHER;
 	i = -1;
 	while (symbols[++i])
@@ -71,6 +71,7 @@ int	what_cmd(char *argv)
 
 void	builtin_executor(char **cmd, char **env)
 {
+	dprintf(2, "BUILTIN\n");
 	if (ft_strcmp(cmd[0], "pwd") == 0)
 		ft_pwd(cmd);
 	else if (ft_strcmp(cmd[0], "env") == 0)
