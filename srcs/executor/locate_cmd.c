@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   locate_cmd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:26:54 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/10 17:57:22 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/17 23:28:45 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*check_path(char *cmd)
 			return (g_c.env[i] + 5);
 		i++;
 	}
-		ft_putstr_fd(cmd, 2);
+	ft_putstr_fd(cmd, 2);
 	ft_putstr_fd(": No such file or directory\n", 2);
 	exit(127);
 	return (0);
@@ -57,11 +57,10 @@ char	*only_path(char *cmd)
 	return (EXIT_SUCCESS);
 }
 
-void	exit_failure(char *err_msg, char **to_free, int flag)
+void	exit_failure(char *err_msg, int flag)
 {
 	if (flag == 1)
 		perror(err_msg);
-	ft_free_matrix(to_free);
 	exit(flag);
 }
 

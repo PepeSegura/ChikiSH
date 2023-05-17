@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/17 10:35:01 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/18 00:15:38 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,9 @@ void	readline_create(void)
 		free(command_buf);
 		expand_while();
 		info = process_input(g_c.tokens);
-		// print_lst(info);
 		pipex(info);
 		free_lst(info);
 	}
 }
+
+		// print_lst(info);

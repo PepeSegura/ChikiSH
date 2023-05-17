@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:57:55 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/17 10:12:13 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/18 00:14:54 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,33 @@ static int	populate_cmd_lst(t_info_cmd **info, char ***input, int *i)
 	return (1);
 }
 
+void	process_here_doc(t_info_cmd **info)
+{
+	t_info_cmd	*cmd;
+	t_redirect	*re;
+	int			fd;
+
+	cmd = *info;
+	while (cmd)
+	{
+		re = cmd->re;
+		while (re)
+		{
+			if (re->type == H_DOC_F)
+			{
+				fd = open_files(TRUNC_F, TEMP_FILE);
+				here_doc(re->file, fd);
+				close(fd);
+				re->type = 1;
+				free(re->file);
+				re->file = ft_strdup(TEMP_FILE);
+			}
+			re = re->next;
+		}
+		cmd = cmd->next;
+	}
+}
+
 t_info_cmd	*process_input(char **input)
 {
 	t_info_cmd	*info;
@@ -87,5 +114,6 @@ t_info_cmd	*process_input(char **input)
 		;
 	ft_free_matrix(aux);
 	g_c.tok_count = ft_lstsize_info(info);
+	process_here_doc(&info);
 	return (info);
 }

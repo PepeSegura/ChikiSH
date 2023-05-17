@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:21:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/17 10:35:40 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/18 00:09:55 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 void	child_process(int i, t_info_cmd *info)
 {
-	int	flag;
-	t_last_red last;
+	int			flag;
+	t_last_red	last;
 
 	flag = 1;
 	ft_memset(&last, 0, sizeof(t_last_red));
