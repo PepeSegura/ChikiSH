@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/15 11:07:52 by agserran         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:01:13 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ int	ft_unset(char **args)
 		to_find = ft_strjoin(args[i], "=");
 		pos = ft_locate_str_in_matrix(g_c.env, to_find);
 		free(to_find);
-		g_c.env = ft_delete_row_matrix(g_c.env, pos);
+		if (pos != -10)
+			g_c.env = ft_delete_row_matrix(g_c.env, pos);
 		i++;
 	}
-	//ft_free_matrix(args);
+	if (g_c.tok_count > 1)
+		exit(EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }

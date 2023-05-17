@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:01:57 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/15 11:20:12 by agserran         ###   ########.fr       */
+/*   Updated: 2023/05/17 10:33:29 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ void	ft_print_env(char **matrix)
 int	ft_env(char **env)
 {
 	ft_print_env(env);
+	if (g_c.tok_count > 1)
+		exit(EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }

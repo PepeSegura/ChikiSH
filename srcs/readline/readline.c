@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/17 09:25:29 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/17 10:35:01 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	read_exit(char *command_buf)
 {
-	if (!ft_strcmp(command_buf, "exit") || !ft_strcmp(command_buf, "quit")
+	if (!ft_strcmp(command_buf, "quit")
 		|| !ft_strcmp(command_buf, "e") || !ft_strcmp(command_buf, "q"))
 	{
 		free(command_buf);
@@ -81,7 +81,6 @@ void	readline_create(void)
 			continue ;
 		free(command_buf);
 		expand_while();
-		// ft_print_matrix(g_c.tokens, "hola");
 		info = process_input(g_c.tokens);
 		// print_lst(info);
 		pipex(info);

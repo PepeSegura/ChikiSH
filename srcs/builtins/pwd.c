@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:06 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/25 04:12:32 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/05/17 10:33:20 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int	ft_pwd(char **commands)
 	ft_putstr_fd(str_pwd, 1);
 	ft_putchar_fd('\n', 1);
 	free(str_pwd);
+	if (g_c.tok_count > 1)
+		exit(EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }
