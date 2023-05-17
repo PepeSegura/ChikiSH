@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 05:11:14 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/15 11:20:20 by agserran         ###   ########.fr       */
+/*   Updated: 2023/05/17 08:19:28 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,13 @@ int	cmd_is_builtin(char *cmd)
 {
 	int			i;
 	int			type;
-	// char		*path;
-	// char		**splited;
 	const char	*symbols[] = {"pwd", "env", "cd", "echo", "export",
 		"unset", NULL};
 
 	if (!cmd)
 		return (0);
-	//path = NULL;
-	//splited = ft_split(cmd, SPACE);
-	//free((void *)cmd);
 	if (cmd == NULL)
 		exit_failure("malloc", NULL, 1);
-	//path = splited[0];
 	type = OTHER;
 	i = -1;
 	while (symbols[++i])

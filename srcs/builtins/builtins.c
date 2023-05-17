@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:57:51 by davgarci          #+#    #+#             */
-/*   Updated: 2023/03/25 16:42:44 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/05/16 20:32:28 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	builtins(char **commands)
+/* int	builtins(char **commands)
 {
 	if (!commands)
 		return (1);
@@ -32,4 +32,4 @@ int	builtins(char **commands)
 		return (ft_exit(commands));
 	else
 		return (42);
-}
+} */

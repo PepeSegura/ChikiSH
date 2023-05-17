@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:01:49 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/15 11:20:48 by agserran         ###   ########.fr       */
+/*   Updated: 2023/05/17 08:14:08 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int	ft_cd(char **env, char **commands)
 	}
 	else if (chdir(path) == -1)
 		printf("cd: No such file or directory\n");
+	if (g_c.tok_count > 1)
+		exit(EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }
