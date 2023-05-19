@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirect.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:23:43 by agserran          #+#    #+#             */
-/*   Updated: 2023/05/18 00:34:28 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/18 12:49:39 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,21 @@ void	open_redirect(t_info_cmd *info, t_last_red *last)
 	{
 		if (info->re->type == TRUNC_F || info->re->type == APPEND_F)
 		{
-			if (info->re->type == TRUNC_F)
-				fd[1] = open_files(TRUNC_F, info->re->file);
-			if (info->re->type == APPEND_F)
-				fd[1] = open_files(APPEND_F, info->re->file);
+			fd[1] = open_files(info->re->type, info->re->file);
 			dup2(fd[1], STDOUT_FILENO);
 			close(fd[1]);
 			last->type = info->re->type;
 			last->file = ft_strdup(info->re->file);
 		}
-		if (info->re->type == INPUT_F)
+		if (info->re->type == INPUT_F || info->re->type == H_DOC_F)
 		{
 			fd[0] = open_files(INPUT_F, info->re->file);
+			if (info->re->type == H_DOC_F)
+				unlink(info->re->file);
 			dup2(fd[0], STDIN_FILENO);
 			close(fd[0]);
 		}
 		info->re = info->re->next;
 	}
-	unlink(TEMP_FILE);
+	
 }
