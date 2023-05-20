@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_lst.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:57:55 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/17 10:12:13 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/18 12:34:41 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,57 @@ static int	populate_cmd_lst(t_info_cmd **info, char ***input, int *i)
 	return (1);
 }
 
+char	*create_filename(void)
+{
+	static int	i = 0;
+	char		*filename;
+	char		*nbr;
+
+	while(i < 1000)
+	{
+		nbr = ft_itoa(i);
+		filename = ft_strjoin("/tmp/.CSH_here_doc_", nbr);
+		if (!filename)
+			continue ;
+		free(nbr);
+		if (access(filename, F_OK))
+			return (filename);
+		free(filename);
+		i++;
+	}
+	i = 0;
+	ft_print_error("Cannot create file in /tmp");
+	return (filename);
+}
+
+void	process_here_doc(t_info_cmd **info)
+{
+	t_info_cmd	*cmd;
+	t_redirect	*re;
+	char		*filename;
+	int			fd;
+
+	cmd = *info;
+	while (cmd)
+	{
+		re = cmd->re;
+		while (re)
+		{
+			if (re->type == H_DOC_F)
+			{
+				filename = create_filename();
+				fd = open_files(TRUNC_F, filename);
+				here_doc(re->file, fd);
+				close(fd);
+				free(re->file);
+				re->file = filename;
+			}
+			re = re->next;
+		}
+		cmd = cmd->next;
+	}
+}
+
 t_info_cmd	*process_input(char **input)
 {
 	t_info_cmd	*info;
@@ -87,5 +138,6 @@ t_info_cmd	*process_input(char **input)
 		;
 	ft_free_matrix(aux);
 	g_c.tok_count = ft_lstsize_info(info);
+	process_here_doc(&info);
 	return (info);
 }

@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/17 11:01:13 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/20 11:38:09 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_unset(char **args)
 	while (args[i])
 	{
 		if (check_syntax(args[i]) == 0)
-			return (printf("export: %s: not a valid identifier\n", args[i]), 1);
+			return (printf("unset: %s: not a valid identifier\n", args[i]), 1);
 		to_find = ft_strjoin(args[i], "=");
 		pos = ft_locate_str_in_matrix(g_c.env, to_find);
 		free(to_find);

@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:41:16 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/07 04:30:44 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/17 21:22:22 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@
 
 /*__ERROR_MESSAGES_________*/
 # include "error_messages.h"
+
+/*__REDIRECTIONS_________*/
+# include "redirections.h"
 
 /*__LIBFT_________*/
 # include "../libft/inc/libft.h"

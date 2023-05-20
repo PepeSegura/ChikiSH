@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_parser.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:56:46 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/10 16:43:43 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/18 00:14:31 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # define INPUT	"<"
 # define APEND	">>"
 # define TRUNC	">"
+
+# define H_DOC_F	0
+# define INPUT_F	1
+# define TRUNC_F	2
+# define APPEND_F	3
 
 typedef struct s_last_red {
 	int		type;

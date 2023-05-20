@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/05/10 16:58:05 by psegura-         ###   ########.fr        #
+#    Updated: 2023/05/17 21:19:42 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ SRCS =											\
 		srcs/lst_parser/utils_lst.c				\
 												\
 		srcs/redirections/redirect.c			\
+		srcs/redirections/here_doc.c			\
 												\
 
 OBJS = $(SRCS:%.c=objs/%.o)

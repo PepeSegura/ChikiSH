@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agserran <agserran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:25:30 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/11 22:32:50 by agserran         ###   ########.fr       */
+/*   Updated: 2023/05/17 23:29:00 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_exec(char **cmd);
 char	*check_path(char *cmd);
 char	*only_path(char *cmd);
 void	cmd_not_found(char *cmd);
-void	exit_failure(char *err_msg, char **to_free, int flag);
+void	exit_failure(char *err_msg, int flag);
 
 /*___MANAGER_CMD___*/
 void	pipex(t_info_cmd *info);
