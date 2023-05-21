@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:03:40 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/21 14:10:07 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/21 16:43:54 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "minishell.h"
 
 int		builtins(char **commands);
+void	builtin_with_redirect(t_info_cmd *info);
 
 /*__SIGNALS___*/
 void	manage_signal(void);
