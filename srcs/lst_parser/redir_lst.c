@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:58:13 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/01 03:08:14 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/20 12:51:02 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	lst_create_redirect(t_redirect **args, t_redirect *new)
 	t_redirect	*aux;
 
 	if (args == NULL)
+	{
+		free(new);
 		return ;
+	}
 	if (*args == NULL)
 	{
 		*args = new;

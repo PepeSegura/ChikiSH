@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_lst.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:57:55 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/18 12:34:41 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/21 14:28:07 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	lst_addback_cmd(t_info_cmd **lst, t_info_cmd *new_node)
 
 static int	handle_token(t_info_cmd *new_node, char ***input, int *i)
 {
-	int		id_re;
-	char	*out;
+	t_redirect	*aux;
+	int			id_re;
+	char		*out;
 
 	id_re = token_is_symbol((*input)[*i]);
 	if (id_re == 4)
@@ -40,7 +41,8 @@ static int	handle_token(t_info_cmd *new_node, char ***input, int *i)
 	if (id_re >= 0 && (*input)[*i + 1])
 	{
 		out = ft_strdup((*input)[*i + 1]);
-		lst_create_redirect(&(new_node->re), lst_new_redirect(id_re, out));
+		aux = lst_new_redirect(id_re, out);
+		lst_create_redirect(&(new_node->re), aux);
 		*input = ft_delete_row_matrix((*input), *i + 1);
 		*input = ft_delete_row_matrix((*input), *i);
 	}
@@ -74,29 +76,6 @@ static int	populate_cmd_lst(t_info_cmd **info, char ***input, int *i)
 	return (1);
 }
 
-char	*create_filename(void)
-{
-	static int	i = 0;
-	char		*filename;
-	char		*nbr;
-
-	while(i < 1000)
-	{
-		nbr = ft_itoa(i);
-		filename = ft_strjoin("/tmp/.CSH_here_doc_", nbr);
-		if (!filename)
-			continue ;
-		free(nbr);
-		if (access(filename, F_OK))
-			return (filename);
-		free(filename);
-		i++;
-	}
-	i = 0;
-	ft_print_error("Cannot create file in /tmp");
-	return (filename);
-}
-
 void	process_here_doc(t_info_cmd **info)
 {
 	t_info_cmd	*cmd;
@@ -112,6 +91,7 @@ void	process_here_doc(t_info_cmd **info)
 		{
 			if (re->type == H_DOC_F)
 			{
+				signal_heredoc();
 				filename = create_filename();
 				fd = open_files(TRUNC_F, filename);
 				here_doc(re->file, fd);

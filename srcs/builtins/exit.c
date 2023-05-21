@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:00 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/17 23:33:44 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/21 14:13:58 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_exit_args(char **args, int j)
 		if (ft_isdigit(args[0][i]) != 1)
 		{
 			printf("msh: exit: %s : numeric argument required\n", args[0]);
-			exit(255);
+			exit(2);
 		}
 		i++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirect.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:23:43 by agserran          #+#    #+#             */
-/*   Updated: 2023/05/18 12:49:39 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/21 14:00:13 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ int	open_files(int identifier, char *filename)
 		fd = open(filename, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (fd == -1)
 		ft_perror(filename);
+	return (fd);
+}
+
+int	open_files_b(int identifier, char *filename)
+{
+	int	fd;
+
+	if (identifier == INPUT_F)
+		fd = open(filename, O_RDONLY);
+	if (identifier == TRUNC_F)
+		fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (identifier == APPEND_F)
+		fd = open(filename, O_WRONLY | O_CREAT | O_APPEND, 0644);
+	if (fd == -1)
+		perror(filename);
 	return (fd);
 }
 
@@ -52,5 +67,4 @@ void	open_redirect(t_info_cmd *info, t_last_red *last)
 		}
 		info->re = info->re->next;
 	}
-	
 }
