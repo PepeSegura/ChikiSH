@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 20:35:24 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/17 23:33:01 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/21 14:54:33 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_exec(char **cmd)
 	char	*path;
 
 	if (cmd == NULL)
-		exit_failure("malloc", 1);
+		exit(0);
 	path = cmd[0];
 	if (!path)
 	{

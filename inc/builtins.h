@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:03:40 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/18 00:10:11 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/21 14:10:07 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int		builtins(char **commands);
 
 /*__SIGNALS___*/
 void	manage_signal(void);
-void	execution_signal_init(void);
-void	execution_signal_hadler(int sig);
+void	signal_heredoc(void);
+void	signal_child(void);
+void	signal_ignore(void);
+void	manage_signal(void);
 
 /*__PWD_____*/
 int		ft_pwd(char **commands);

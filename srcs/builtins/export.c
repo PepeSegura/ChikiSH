@@ -6,11 +6,19 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:04 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/17 10:45:13 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/20 12:18:05 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+typedef struct s_export {
+	int		pos;
+	int		i;
+	char	**temp;
+	char	*aux;
+	int		flag;
+}	t_export;
 
 char	*find_until_char(char *str, char letter)
 {
@@ -34,6 +42,8 @@ int	check_syntax(char *str)
 
 	i = 0;
 	if (ft_strchr(str, '=') == NULL)
+		return (2);
+	if (str[i] == '=')
 		return (0);
 	while (str[i] && str[i] != '=')
 	{
@@ -59,30 +69,39 @@ int	ft_print_exported(char **matrix)
 	return (0);
 }
 
+void	export_aux(t_export *e, char **args)
+{
+	e->aux = find_until_char(args[e->i], '=');
+	e->pos = ft_locate_str_in_matrix(g_c.env, e->aux);
+	if (ft_strcmp(e->aux, args[e->i]))
+		free(e->aux);
+	g_c.env = ft_delete_row_matrix(g_c.env, e->pos);
+	e->temp = ft_add_row_matrix(g_c.env, args[e->i]);
+	ft_free_matrix(g_c.env);
+	g_c.env = ft_cpy_matrix(e->temp);
+}
+
 int	ft_export(char **args)
 {
-	int		pos;
-	int		i;
-	char	**temp;
-	char	*aux;
+	t_export	e;
 
+	ft_memset(&e, 0, sizeof(t_export));
 	if (!args[1])
 		return (ft_print_exported(g_c.env));
-	i = 0;
-	while (args[++i])
+	e.i = 0;
+	while (args[++e.i])
 	{
-		if (check_syntax(args[i]) == 0)
-			return (printf("export: %s: not a valid identifier\n", args[i]), 1);
-		aux = find_until_char(args[i], '=');
-		pos = ft_locate_str_in_matrix(g_c.env, aux);
-		if (ft_strcmp(aux, args[i]))
-			free(aux);
-		g_c.env = ft_delete_row_matrix(g_c.env, pos);
-		temp = ft_add_row_matrix(g_c.env, args[i]);
-		ft_free_matrix(g_c.env);
-		g_c.env = ft_cpy_matrix(temp);
+		if (check_syntax(args[e.i]) == 0 || check_syntax(args[e.i]) == 2)
+		{
+			if (check_syntax(args[e.i]) == 2)
+				continue ;
+			printf("export: %s: not a valid identifier\n", args[e.i]);
+			e.flag = 1;
+			continue ;
+		}
+		export_aux(&e, args);
 	}
 	if (g_c.tok_count > 1)
-		exit(EXIT_SUCCESS);
-	return (EXIT_SUCCESS);
+		exit(e.flag);
+	return (e.flag);
 }

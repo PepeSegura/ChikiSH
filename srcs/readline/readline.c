@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   readline.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/18 12:59:26 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/21 14:47:00 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	readline_create(void)
 
 	while (1)
 	{
+		manage_signal();
 		if (isatty(fileno(stdin)))
 			line = readline(PROMPT);
 		command_buf = ft_strtrim(line, " \f\n\r\t\v");
@@ -82,7 +83,7 @@ void	readline_create(void)
 		free(command_buf);
 		expand_while();
 		info = process_input(g_c.tokens);
-		print_lst(info);
+		// print_lst(info);
 		pipex(info);
 		free_lst(info);
 	}

@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:16:12 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/18 00:15:51 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/20 12:20:20 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,27 @@ void	here_doc(char *limit, int fd)
 		}
 		free(clean);
 	}
+}
+
+char	*create_filename(void)
+{
+	static int	i = 0;
+	char		*filename;
+	char		*nbr;
+
+	while (i < 1000)
+	{
+		nbr = ft_itoa(i);
+		filename = ft_strjoin("/tmp/.CSH_here_doc_", nbr);
+		if (!filename)
+			continue ;
+		free(nbr);
+		if (access(filename, F_OK))
+			return (filename);
+		free(filename);
+		i++;
+	}
+	i = 0;
+	ft_print_error("Cannot create file in /tmp");
+	return (filename);
 }
