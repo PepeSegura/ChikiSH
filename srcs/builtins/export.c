@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:04 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/21 21:03:31 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/22 12:58:33 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,6 @@ int	check_syntax(char *str)
 	int	i;
 
 	i = 0;
-	if (ft_strchr(str, '=') == NULL)
-		return (2);
-	if (str[i] == '=')
-		return (0);
 	while (str[i] && str[i] != '=')
 	{
 		if (i == 0 && (ft_isalpha(str[i]) == 0 && str[i] != '_'))
@@ -53,6 +49,10 @@ int	check_syntax(char *str)
 			return (0);
 		i++;
 	}
+	if (ft_strchr(str, '=') == NULL)
+		return (2);
+	if (str[0] == '=')
+		return (0);
 	return (1);
 }
 

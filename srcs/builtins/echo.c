@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:01:54 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/22 01:09:22 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/22 12:51:01 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	check_flag(char *flag)
 	char	*n_chars;
 	size_t	i;
 
-	n_chars = flag + 1;
+	if (flag[0] == '-')
+		n_chars = flag + 1;
+	else
+		return (0);
 	i = 0;
 	while (n_chars[i])
 	{
@@ -37,7 +40,7 @@ int	ft_echo(char **commands)
 	flag = 0;
 	while (commands[i] && check_flag(commands[i]))
 	{
-		flag++;
+		flag = 1;
 		i++;
 	}
 	while (commands[i])
