@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/22 13:08:28 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:48:47 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_continue(char *command_buf)
 	store_tokens(command_buf, g_c.tokens);
 	if (double_symbols(g_c.tokens) == 1)
 	{
-		printf("Invalid symbols!\n");
+		g_c.dolar_q = 258;
 		free(command_buf);
 		return (1);
 	}
