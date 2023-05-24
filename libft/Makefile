@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 20:21:59 by psegura-          #+#    #+#              #
-#    Updated: 2023/04/07 19:53:04 by pepe             ###   ########.fr        #
+#    Updated: 2023/05/24 14:27:02 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRCS_NAME = 						\
 			ft_print_matrix.c		\
 			ft_free_matrix.c		\
 			ft_len_matrix.c			\
+			ft_sort_matrix.c		\
 			ft_locate_str_in_matrix.c\
 			ft_cpy_matrix.c			\
 			ft_add_row_matrix.c		\

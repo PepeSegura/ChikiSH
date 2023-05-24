@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:04 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/22 12:58:33 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:33:42 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-typedef struct s_export {
+typedef struct s_export
+{
 	int		pos;
 	int		i;
 	char	**temp;
 	char	*aux;
 	int		flag;
-}	t_export;
+}			t_export;
 
 char	*find_until_char(char *str, char letter)
 {
@@ -61,6 +62,7 @@ int	ft_print_exported(char **matrix)
 	int	i;
 
 	i = 0;
+	ft_sort_matrix(matrix);
 	while (matrix[i])
 	{
 		printf("declare -x %s\n", matrix[i]);
@@ -71,6 +73,8 @@ int	ft_print_exported(char **matrix)
 
 void	export_aux(t_export *e, char **args)
 {
+	if (g_c.env == NULL)
+		g_c.env = malloc(1);
 	e->aux = find_until_char(args[e->i], '=');
 	e->pos = ft_locate_str_in_matrix(g_c.env, e->aux);
 	if (ft_strcmp(e->aux, args[e->i]))
@@ -86,6 +90,8 @@ int	ft_export(char **args)
 	t_export	e;
 
 	ft_memset(&e, 0, sizeof(t_export));
+	if (!args[1] && g_c.tok_count > 1)
+		exit(ft_print_exported(g_c.env));
 	if (!args[1])
 		return (ft_print_exported(g_c.env));
 	e.i = 0;

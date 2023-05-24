@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 23:37:32 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/21 14:38:18 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/24 13:43:23 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	signal_parent(int signal)
 
 void	signal_heredoc(void)
 {
-	signal(SIGINT, SIG_DFL);
+	signal(SIGINT, SIG_IGN);
 	signal(SIGQUIT, SIG_IGN);
 }
 

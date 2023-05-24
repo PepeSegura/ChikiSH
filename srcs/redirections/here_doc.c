@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:16:12 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/20 12:20:20 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/24 13:39:06 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	here_doc(char *limit, int fd)
 		print_prompt(limit);
 		line = get_next_line(STDIN_FILENO);
 		if (!line)
-			ft_print_error("Malloc KO");
+		{
+			ft_putendl_fd(WARNING_EOF, 2);
+			break ;
+		}
 		clean = ft_strtrim(line, "\n");
 		if (ft_strcmp(clean, limit) != 0)
 			ft_putstr_fd(line, fd);

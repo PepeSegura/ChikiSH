@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:44:42 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/20 12:30:54 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/24 14:26:12 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		ft_print_matrix(char **matrix, char *str);
 void		ft_free_matrix(char **matrix);
 int			ft_len_matrix(char **matrix);
+void		ft_sort_matrix(char **matrix);
 int			ft_locate_str_in_matrix(char **matrix, char *str);
 char		**ft_cpy_matrix(char **matrix);
 char		**ft_slice_matrix(char **matrix, int start, int end);
