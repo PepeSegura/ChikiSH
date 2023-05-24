@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
+#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/05/24 12:25:48 by pepe             ###   ########.fr        #
+#    Updated: 2023/05/24 17:03:57 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,10 +74,11 @@ CC = gcc
 
 # MAKEFLAGS += -j6
 
-CFLAGS	 = -Wall -Wextra -Werror -g3 -fsanitize=address,leak
-CFLAGS	+= -I inc
-CFLAGS	+= -I libft
-READLINE = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)/.brew/opt/readline/include
+CFLAGS	 =	-Wall -Wextra -Werror #-g3 -fsanitize=address,leak
+CFLAGS	+=	-I inc
+CFLAGS	+=	-I libft
+READLINE =	-lreadline -L /Users/$(USER)/.brew/opt/readline/lib	\
+			-I /Users/$(USER)/.brew/opt/readline/include
 
 date := $(shell date +"%a %b %_d %H:%M")
 
@@ -87,7 +88,9 @@ $(NAME): objs $(OBJS)
 	@echo -e "$(CYAN) MINISHELL RIDERS GOING AFTER YOU $(WHITE)"
 
 objs:
-	@mkdir -p objs/srcs/intro objs/srcs/readline objs/srcs/tokenizer objs/srcs/executor objs/srcs/utils objs/srcs/builtins objs/srcs/lst_parser objs/srcs/redirections
+	@mkdir -p	objs/srcs/intro objs/srcs/readline objs/srcs/tokenizer	\
+				objs/srcs/executor objs/srcs/utils objs/srcs/builtins	\
+				objs/srcs/lst_parser objs/srcs/redirections				\
 
 objs/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
