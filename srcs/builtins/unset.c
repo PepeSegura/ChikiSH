@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/30 14:41:16 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/05/30 14:55:08 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_unset(char **args)
 	{
 		if (check_syntax(args[i]) == 0)
 		{
-			printf("unset: %s: not a valid identifier\n", args[i]);
+			printf("unset: %s: not a valid identifier\n", args[i++]);
 			flag = 1;
 			continue ;
 		}
