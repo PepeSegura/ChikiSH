@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/20 11:38:09 by pepe             ###   ########.fr       */
+/*   Updated: 2023/05/30 14:41:16 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,18 @@ int	ft_unset(char **args)
 	int		pos;
 	char	*to_find;
 	int		i;
+	int		flag;
 
 	i = 1;
+	flag = 0;
 	while (args[i])
 	{
 		if (check_syntax(args[i]) == 0)
-			return (printf("unset: %s: not a valid identifier\n", args[i]), 1);
+		{
+			printf("unset: %s: not a valid identifier\n", args[i]);
+			flag = 1;
+			continue ;
+		}
 		to_find = ft_strjoin(args[i], "=");
 		pos = ft_locate_str_in_matrix(g_c.env, to_find);
 		free(to_find);
@@ -47,6 +53,6 @@ int	ft_unset(char **args)
 		i++;
 	}
 	if (g_c.tok_count > 1)
-		exit(EXIT_SUCCESS);
-	return (EXIT_SUCCESS);
+		exit(flag);
+	return (flag);
 }
