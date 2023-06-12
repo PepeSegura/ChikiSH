@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_cmd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 03:33:59 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/07 05:03:35 by pepe             ###   ########.fr       */
+/*   Updated: 2023/06/12 03:46:59 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	wait_child(void)
 		{
 			if (WEXITSTATUS(status))
 				g_c.dolar_q = WEXITSTATUS(status);
+			if (WIFSIGNALED(status))
+				g_c.dolar_q = WTERMSIG(status) + 128;
 		}
 	}
 }
