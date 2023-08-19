@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/05/22 17:48:47 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:50:58 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,7 @@ void	readline_create(void)
 		expand_while();
 		info = process_input(g_c.tokens);
 		pipex(info);
+		// print_lst(info);
 		free_lst(info);
 	}
 }
-
-		// print_lst(info);

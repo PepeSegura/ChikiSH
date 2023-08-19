@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_lst.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 01:57:55 by pepe              #+#    #+#             */
-/*   Updated: 2023/05/24 13:43:11 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/31 17:53:40 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ t_info_cmd	*process_input(char **input)
 		;
 	ft_free_matrix(aux);
 	g_c.tok_count = ft_lstsize_info(info);
+	// print_lst(info);
 	process_here_doc(&info);
 	return (info);
 }

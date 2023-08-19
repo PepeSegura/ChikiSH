@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/05/26 18:18:15 by psegura-         ###   ########.fr        #
+#    Updated: 2023/06/23 23:44:02 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,6 @@ NAME = minishell
 
 SRCS =											\
 		srcs/main.c								\
-												\
-		srcs/intro/intro.c						\
 												\
 		srcs/readline/readline.c				\
 												\
@@ -74,7 +72,7 @@ CC = gcc
 
 # MAKEFLAGS += -j6
 
-CFLAGS	 =	-Wall -Wextra -Werror -g3 -fsanitize=address,leak
+CFLAGS	 =	-Wall -Wextra -Werror #-g3 -fsanitize=address,leak
 CFLAGS	+=	-I inc
 CFLAGS	+=	-I libft
 READLINE =	-lreadline -L /Users/$(USER)/.brew/opt/readline/lib	\

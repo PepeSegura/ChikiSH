@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:57:51 by davgarci          #+#    #+#             */
-/*   Updated: 2023/05/21 16:43:22 by pepe             ###   ########.fr       */
+/*   Updated: 2023/08/19 19:36:14 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	builtin_with_redirect(t_info_cmd *info)
 void	builtin_executor(char **cmd, char **env)
 {
 	if (ft_strcmp(cmd[0], "pwd") == 0)
-		g_c.dolar_q = ft_pwd(cmd);
+		g_c.dolar_q = ft_pwd();
 	else if (ft_strcmp(cmd[0], "env") == 0)
 		g_c.dolar_q = ft_env(env);
 	else if (ft_strcmp(cmd[0], "cd") == 0)
